@@ -52,13 +52,13 @@ public class Main {
 
         List<Integer> ids = List.of(3, 2545, 123, 4, 189, 89, 3458, 1189, 10, 102); //выбираем случайных 10 id городов. так как мы не делали обработку невалидных ситуаций, используй существующие в БД id
 
-        long startRedis = System.currentTimeMillis();
-        main.testRedisData(ids);
-        long stopRedis = System.currentTimeMillis();
+        long startRedis = System.currentTimeMillis(); // время начала теста
+        main.testRedisData(ids); // запрос тестовых данных Redis
+        long stopRedis = System.currentTimeMillis(); // время окончания теста
 
-        long startMysql = System.currentTimeMillis();
-        main.testMysqlData(ids);
-        long stopMysql = System.currentTimeMillis();
+        long startMysql = System.currentTimeMillis(); // время начала теста
+        main.testMysqlData(ids); // запрос тестовых данных MySql
+        long stopMysql = System.currentTimeMillis(); // время окончания теста
 
         System.out.printf("%s:\t%d ms\n", "Redis", (stopRedis - startRedis));
         System.out.printf("%s:\t%d ms\n", "MySQL", (stopMysql - startMysql));
