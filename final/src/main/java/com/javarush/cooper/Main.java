@@ -44,9 +44,9 @@ public class Main {
 
     public static void main(String[] args) {
         Main main = new Main();
-        List<City> allCities = main.fetchData(main);
-        List<CityCountry> preparedData = main.transformData(allCities);
-        main.pushToRedis(preparedData);
+        List<City> allCities = main.fetchData(main); // запрос списка городов
+        List<CityCountry> preparedData = main.transformData(allCities); // преобразование списка городов для Redis
+        main.pushToRedis(preparedData); // сохранение данных в Redis
 
         main.sessionFactory.getCurrentSession().close(); //закроем текущую сессию, чтоб точно делать запрос к БД, а не вытянуть данные из кэша
 
